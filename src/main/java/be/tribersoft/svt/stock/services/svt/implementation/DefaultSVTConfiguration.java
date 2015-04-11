@@ -4,13 +4,14 @@ import javax.inject.Inject;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.core.env.Environment;
 
 import be.tribersoft.svt.stock.services.svt.api.SVTConfiguration;
 import be.tribersoft.svt.stock.services.svt.api.SVTType;
 
 @Configuration
-@PropertySource("classpath:svt.properties")
+@PropertySources({ @PropertySource("svt.properties"), @PropertySource("file:svt.properties") })
 public class DefaultSVTConfiguration implements SVTConfiguration {
 
 	private static final String URL_KEY = "url";
