@@ -25,7 +25,7 @@ The provided configuration looks like this:
 
 ## stub data
 | Name 	| Latest price 	| Highest price | Lowest price 	|
-|-------------------------------------------------------|
+|-------|---------------|---------------|---------------|
 | namea | 12.3 			| 56.7 			| 34.1 			|
 | nameb | 212.3 		| 256.7 		| 234.1 		|
 
