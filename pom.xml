@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>be.tribersoft</groupId>
 	<artifactId>svt-stock</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 
 	<properties>
 		<jsoup.version>1.8.1</jsoup.version>

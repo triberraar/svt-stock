@@ -28,10 +28,3 @@ The provided configuration looks like this:
 |-------|---------------|---------------|---------------|
 | namea | 12.3 			| 56.7 			| 34.1 			|
 | nameb | 212.3 		| 256.7 		| 234.1 		|
-
-
-## Test
-| Name | Description          |
-| ------------- | ----------- |
-| Help      | Display the help window.|
-| Close     | Closes a window     |
