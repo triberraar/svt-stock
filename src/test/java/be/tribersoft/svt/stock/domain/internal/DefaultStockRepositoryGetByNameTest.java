@@ -50,6 +50,12 @@ public class DefaultStockRepositoryGetByNameTest {
 		assertSame(stock1, defaultStockRepository.getByName(NAME_1));
 	}
 
+	@Test
+	public void returnsStockIfFoundCaseInsensitive() throws StockNotFoundException {
+		assertSame(stock2, defaultStockRepository.getByName(NAME_2.toLowerCase()));
+		assertSame(stock2, defaultStockRepository.getByName(NAME_2.toUpperCase()));
+	}
+
 	@Test(expected = StockNotFoundException.class)
 	public void failsWhenStockNotFound() throws StockNotFoundException {
 		defaultStockRepository.getByName(UNEXISTING);

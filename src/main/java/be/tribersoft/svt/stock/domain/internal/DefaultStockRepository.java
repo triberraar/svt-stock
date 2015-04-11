@@ -17,11 +17,10 @@ public class DefaultStockRepository implements StockRepository {
 	@Override
 	public Stock getByName(String name) throws StockNotFoundException {
 		for (Stock stock : svtService.getAll()) {
-			if (name.equals(stock.getName())) {
+			if (name.equalsIgnoreCase(stock.getName())) {
 				return stock;
 			}
 		}
 		throw new StockNotFoundException(name);
 	}
-
 }
