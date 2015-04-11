@@ -6,7 +6,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import be.tribersoft.svt.stock.services.api.StockService;
-import be.tribersoft.svt.stock.services.svt.api.SVTService;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTService;
 
 @Named
 public class Application {

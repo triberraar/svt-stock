@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.svt_anti_corruption.implementation;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -13,8 +13,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import be.tribersoft.svt.stock.services.svt.api.SVTConfiguration;
-import be.tribersoft.svt.stock.services.svt.api.SVTType;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTConfiguration;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTType;
 
 @Named
 public class SVTDataRetriever {

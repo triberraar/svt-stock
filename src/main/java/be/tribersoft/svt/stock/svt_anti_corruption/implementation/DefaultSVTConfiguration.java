@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.svt_anti_corruption.implementation;
 
 import javax.inject.Inject;
 
@@ -7,8 +7,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.core.env.Environment;
 
-import be.tribersoft.svt.stock.services.svt.api.SVTConfiguration;
-import be.tribersoft.svt.stock.services.svt.api.SVTType;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTConfiguration;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTType;
 
 @Configuration
 @PropertySources({ @PropertySource("svt.properties"), @PropertySource(value = "file:svt.properties", ignoreResourceNotFound = true) })

@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.svt_anti_corruption.implementation;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -14,8 +14,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import be.tribersoft.svt.stock.services.svt.api.SVTConfiguration;
-import be.tribersoft.svt.stock.services.svt.api.SVTType;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTConfiguration;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTType;
+import be.tribersoft.svt.stock.svt_anti_corruption.implementation.SVTDataRetriever;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SVTDataRetrieverRetrieveTest {

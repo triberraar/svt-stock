@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.svt_anti_corruption.implementation;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -10,7 +10,8 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.core.env.Environment;
 
-import be.tribersoft.svt.stock.services.svt.api.SVTType;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTType;
+import be.tribersoft.svt.stock.svt_anti_corruption.implementation.DefaultSVTConfiguration;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultSVTConfigurationTest {

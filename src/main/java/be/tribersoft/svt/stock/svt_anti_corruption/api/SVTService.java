@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.api;
+package be.tribersoft.svt.stock.svt_anti_corruption.api;
 
 import java.util.Set;
 
