@@ -8,4 +8,6 @@ public interface SVTConfiguration {
 
 	SVTType getType();
 
+	Long getCachingDuration();
+
 }

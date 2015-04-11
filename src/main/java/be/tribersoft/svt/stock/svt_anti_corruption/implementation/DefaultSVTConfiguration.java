@@ -19,11 +19,14 @@ import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTType;
 @PropertySources({ @PropertySource("svt.properties"), @PropertySource(value = "file:svt.properties", ignoreResourceNotFound = true) })
 public class DefaultSVTConfiguration implements SVTConfiguration {
 
+	private static final Long DEFAULT_CACHING_DURATION = 300l;
 	private static final String TYPE_KEY = "type";
 	private static final String URLS_KEY = "urls";
 	private static final String SVT_PREFIX = "http://www.svt.se/svttext/web/pages/";
 	private static final String SVT_PAGE = "203.html";
 	private static final String STUB_LOCATION = "/stub.html";
+	private static final String CACHING_DURATION_KEY = "caching.duration";
+
 	@Inject
 	private Environment environment;
 
@@ -67,5 +70,14 @@ public class DefaultSVTConfiguration implements SVTConfiguration {
 	@Override
 	public SVTType getType() {
 		return SVTType.convert(environment.getProperty(TYPE_KEY));
+	}
+
+	@Override
+	public Long getCachingDuration() {
+		try {
+			return Long.parseLong(environment.getProperty(CACHING_DURATION_KEY));
+		} catch (NumberFormatException nfe) {
+			return DEFAULT_CACHING_DURATION;
+		}
 	}
 }
