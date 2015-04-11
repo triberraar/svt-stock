@@ -1,11 +1,9 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.domain.internal;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
-
-import be.tribersoft.svt.stock.domain.internal.DefaultStock;
 
 public class DefaultStockEqualsTest {
 

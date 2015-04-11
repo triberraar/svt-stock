@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.domain.internal;
 
 import static org.junit.Assert.assertEquals;
 
