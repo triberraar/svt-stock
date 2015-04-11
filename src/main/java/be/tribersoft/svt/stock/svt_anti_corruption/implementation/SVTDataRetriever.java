@@ -28,43 +28,44 @@ public class SVTDataRetriever {
 
 	public Set<String[]> retrieve() {
 		Set<String[]> dataLines = new HashSet<>();
-		Document document = getDocument();
-		if (document == null) {
-			return dataLines;
-		}
-		Elements dataNodes = document.select("pre.root");
-		if (dataNodes.size() == 2) {
-			Elements tests = dataNodes.get(1).select("span");
-			for (Element test : tests) {
-				String[] split = test.text().split("\\s+");
-				dataLines.add(split);
+		for (String url : svtConfiguration.getUrls()) {
+			Document document = getDocument(url);
+			if (document != null) {
+				Elements dataNodes = document.select("pre.root");
+				if (dataNodes.size() == 2) {
+					Elements tests = dataNodes.get(1).select("span");
+					for (Element test : tests) {
+						String[] split = test.text().split("\\s+");
+						dataLines.add(split);
+					}
+				}
 			}
 		}
 
 		return dataLines;
 	}
 
-	private Document getDocument() {
+	private Document getDocument(String url) {
 		if (svtConfiguration.getType() == SVTType.HTTP) {
-			return getDocumentHTTP();
+			return getDocumentHTTP(url);
 		} else {
-			return getDocumentFile();
+			return getDocumentFile(url);
 		}
 
 	}
 
-	private Document getDocumentFile() {
+	private Document getDocumentFile(String file) {
 		try {
-			return Jsoup.parse(getClass().getResourceAsStream(svtConfiguration.getUrl()), UTF_8, "");
+			return Jsoup.parse(getClass().getResourceAsStream(file), UTF_8, "");
 		} catch (IOException e) {
 			LOGGER.severe("Failed to connect to open file");
 		}
 		return null;
 	}
 
-	private Document getDocumentHTTP() {
+	private Document getDocumentHTTP(String url) {
 		try {
-			return Jsoup.connect(svtConfiguration.getUrl()).userAgent(USER_AGENT).get();
+			return Jsoup.connect(url).userAgent(USER_AGENT).get();
 		} catch (IOException e) {
 			LOGGER.severe("Failed to connect to SVT server");
 		}

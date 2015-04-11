@@ -1,8 +1,10 @@
 package be.tribersoft.svt.stock.svt_anti_corruption.api;
 
+import java.util.Set;
+
 public interface SVTConfiguration {
 
-	String getUrl();
+	Set<String> getUrls();
 
 	SVTType getType();
 
