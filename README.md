@@ -24,5 +24,7 @@ The provided configuration looks like this:
 	caching.duration=300
 
 ## stub data
-The following stub data is provided:
-
+Name | Latest price | Highest price | Lowest price
+--------------------------------------------------
+namea | 12.3 | 56.7 | 34.1
+nameb | 212.3 |256.7 |234.1
