@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.svt_anti_corruption.implementation;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

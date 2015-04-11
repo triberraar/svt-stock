@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.svt_anti_corruption.implementation;
 
 import static org.junit.Assert.assertSame;
 import static org.mockito.Mockito.inOrder;
@@ -16,6 +16,9 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import be.tribersoft.svt.stock.domain.api.Stock;
+import be.tribersoft.svt.stock.svt_anti_corruption.implementation.DefaultSVTService;
+import be.tribersoft.svt.stock.svt_anti_corruption.implementation.SVTDataParser;
+import be.tribersoft.svt.stock.svt_anti_corruption.implementation.SVTDataRetriever;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultSVTServiceGetAllTest {

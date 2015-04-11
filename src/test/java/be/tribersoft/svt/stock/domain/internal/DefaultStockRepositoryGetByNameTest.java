@@ -16,7 +16,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import be.tribersoft.svt.stock.domain.api.Stock;
 import be.tribersoft.svt.stock.domain.api.StockNotFoundException;
-import be.tribersoft.svt.stock.services.svt.api.SVTService;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultStockRepositoryGetByNameTest {

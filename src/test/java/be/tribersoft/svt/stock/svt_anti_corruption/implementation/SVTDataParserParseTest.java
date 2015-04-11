@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.svt_anti_corruption.implementation;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -18,6 +18,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import be.tribersoft.svt.stock.domain.api.Stock;
 import be.tribersoft.svt.stock.domain.api.StockFactory;
+import be.tribersoft.svt.stock.svt_anti_corruption.implementation.SVTDataParser;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SVTDataParserParseTest {

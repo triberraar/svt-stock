@@ -1,4 +1,4 @@
-package be.tribersoft.svt.stock.services.svt.implementation;
+package be.tribersoft.svt.stock.svt_anti_corruption.implementation;
 
 import java.util.Collection;
 import java.util.Set;
@@ -7,7 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import be.tribersoft.svt.stock.domain.api.Stock;
-import be.tribersoft.svt.stock.services.svt.api.SVTService;
+import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTService;
 
 @Named
 public class DefaultSVTService implements SVTService {
