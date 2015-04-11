@@ -1,10 +1,11 @@
 package be.tribersoft.svt.stock.services.svt.implementation;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.jsoup.Jsoup;
@@ -12,32 +13,62 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import be.tribersoft.svt.stock.services.svt.api.SVTConfiguration;
+import be.tribersoft.svt.stock.services.svt.api.SVTType;
+
 @Named
 public class SVTDataRetriever {
 
+	private static final String UTF_8 = "UTF-8";
 	private final static Logger LOGGER = Logger.getLogger(SVTDataRetriever.class.getName());
-
 	private static final String USER_AGENT = "Mozilla";
-	private static final String SVT_URL = "http://www.svt.se/svttext/web/pages/203.html";
 
-	public Collection<String[]> retrieve() {
-		Collection<String[]> dataLines = new HashSet<>();
-		Document doc;
-		try {
-			doc = Jsoup.connect(SVT_URL).userAgent(USER_AGENT).get();
-			Elements dataNodes = doc.select("pre.root");
-			if (dataNodes.size() == 2) {
-				Elements tests = dataNodes.get(1).select("span");
-				for (Element test : tests) {
-					String[] split = test.text().split("\\s+");
-					dataLines.add(split);
-				}
+	@Inject
+	private SVTConfiguration svtConfiguration;
+
+	public Set<String[]> retrieve() {
+		Set<String[]> dataLines = new HashSet<>();
+		Document document = getDocument();
+		if (document == null) {
+			return dataLines;
+		}
+		Elements dataNodes = document.select("pre.root");
+		if (dataNodes.size() == 2) {
+			Elements tests = dataNodes.get(1).select("span");
+			for (Element test : tests) {
+				String[] split = test.text().split("\\s+");
+				dataLines.add(split);
 			}
-		} catch (IOException e) {
-			LOGGER.severe("Failed to connect to SVT server");
 		}
 
 		return dataLines;
+	}
+
+	private Document getDocument() {
+		if (svtConfiguration.getType() == SVTType.HTTP) {
+			return getDocumentHTTP();
+		} else {
+			return getDocumentFile();
+		}
+
+	}
+
+	private Document getDocumentFile() {
+		try {
+			return Jsoup.parse(getClass().getResourceAsStream(svtConfiguration.getUrl()), UTF_8, "");
+		} catch (IOException e) {
+			LOGGER.severe("Failed to connect to open file");
+		}
+		return null;
+	}
+
+	private Document getDocumentHTTP() {
+		try {
+			return Jsoup.connect(svtConfiguration.getUrl()).userAgent(USER_AGENT).get();
+		} catch (IOException e) {
+			LOGGER.severe("Failed to connect to SVT server");
+		}
+		return null;
 	}
 
 }

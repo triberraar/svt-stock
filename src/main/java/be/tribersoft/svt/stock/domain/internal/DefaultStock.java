@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 
 import org.springframework.util.Assert;
 
-public class DefaultStock {
+import be.tribersoft.svt.stock.domain.api.Stock;
+
+public class DefaultStock implements Stock {
 
 	private String name;
 	private BigDecimal latestPrice;

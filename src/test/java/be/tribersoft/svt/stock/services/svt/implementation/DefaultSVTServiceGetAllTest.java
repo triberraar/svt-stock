@@ -4,7 +4,6 @@ import static org.junit.Assert.assertSame;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.when;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +21,7 @@ import be.tribersoft.svt.stock.domain.api.Stock;
 public class DefaultSVTServiceGetAllTest {
 
 	private static final String STRING = "string";
-	private static final Collection<String[]> DATA_LINES = new HashSet<String[]>();
+	private static final Set<String[]> DATA_LINES = new HashSet<String[]>();
 	private static final Set<Stock> STOCKS = new HashSet<Stock>();
 
 	@Mock
