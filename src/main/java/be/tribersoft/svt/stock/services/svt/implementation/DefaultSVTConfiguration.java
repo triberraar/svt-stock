@@ -11,7 +11,7 @@ import be.tribersoft.svt.stock.services.svt.api.SVTConfiguration;
 import be.tribersoft.svt.stock.services.svt.api.SVTType;
 
 @Configuration
-@PropertySources({ @PropertySource("svt.properties"), @PropertySource("file:svt.properties") })
+@PropertySources({ @PropertySource("svt.properties"), @PropertySource(value = "file:svt.properties", ignoreResourceNotFound = true) })
 public class DefaultSVTConfiguration implements SVTConfiguration {
 
 	private static final String URL_KEY = "url";
