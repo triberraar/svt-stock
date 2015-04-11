@@ -19,7 +19,8 @@ import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTType;
 @PropertySources({ @PropertySource("svt.properties"), @PropertySource(value = "file:svt.properties", ignoreResourceNotFound = true) })
 public class DefaultSVTConfiguration implements SVTConfiguration {
 
-	private static final String URL_KEY = "url";
+	private static final String TYPE_KEY = "type";
+	private static final String URLS_KEY = "url";
 	private static final String SVT_PREFIX = "http://www.svt.se/svttext/web/pages/";
 	private static final String SVT_PAGE = "203.html";
 	private static final String STUB_LOCATION = "/stub.html";
@@ -29,7 +30,7 @@ public class DefaultSVTConfiguration implements SVTConfiguration {
 	@SuppressWarnings("unchecked")
 	@Override
 	public Set<String> getUrls() {
-		List<String> urls = environment.getProperty("urls", List.class);
+		List<String> urls = environment.getProperty(URLS_KEY, List.class);
 		Set<String> result = new HashSet<String>();
 		if (urls == null) {
 			urls = new ArrayList<String>();
@@ -65,6 +66,6 @@ public class DefaultSVTConfiguration implements SVTConfiguration {
 
 	@Override
 	public SVTType getType() {
-		return SVTType.convert(environment.getProperty("type"));
+		return SVTType.convert(environment.getProperty(TYPE_KEY));
 	}
 }

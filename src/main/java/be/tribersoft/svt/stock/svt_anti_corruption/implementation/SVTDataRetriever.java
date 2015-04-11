@@ -31,18 +31,24 @@ public class SVTDataRetriever {
 		for (String url : svtConfiguration.getUrls()) {
 			Document document = getDocument(url);
 			if (document != null) {
-				Elements dataNodes = document.select("pre.root");
-				if (dataNodes.size() == 2) {
-					Elements tests = dataNodes.get(1).select("span");
-					for (Element test : tests) {
-						String[] split = test.text().split("\\s+");
-						dataLines.add(split);
-					}
-				}
+				dataLines.addAll(processDocument(document));
 			}
 		}
 
 		return dataLines;
+	}
+
+	private Set<String[]> processDocument(Document document) {
+		Set<String[]> documentResult = new HashSet<String[]>();
+		Elements dataNodes = document.select("pre.root");
+		if (dataNodes.size() == 2) {
+			Elements tests = dataNodes.get(1).select("span");
+			for (Element test : tests) {
+				String[] split = test.text().split("\\s+");
+				documentResult.add(split);
+			}
+		}
+		return documentResult;
 	}
 
 	private Document getDocument(String url) {

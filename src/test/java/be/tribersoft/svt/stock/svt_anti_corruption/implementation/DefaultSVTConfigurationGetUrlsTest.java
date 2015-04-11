@@ -15,10 +15,8 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.core.env.Environment;
 
-import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTType;
-
 @RunWith(MockitoJUnitRunner.class)
-public class DefaultSVTConfigurationTest {
+public class DefaultSVTConfigurationGetUrlsTest {
 
 	private static final String STUB_LOCATON = "/stub.html";
 	private static final String TYPE_FILE = "file";
@@ -35,7 +33,7 @@ public class DefaultSVTConfigurationTest {
 	private Environment environment;
 
 	@Test
-	public void getUrlsReturnsTheUrlsWhenInHTTPModeAndURLsAreValid() {
+	public void returnsTheUrlsWhenInHTTPModeAndURLsAreValid() {
 		List<String> urls = new ArrayList<>();
 		urls.add(VALID_URL_1);
 		urls.add(VALID_URL_2);
@@ -86,9 +84,4 @@ public class DefaultSVTConfigurationTest {
 		assertTrue(defaultSVTConfiguration.getUrls().contains(STUB_LOCATON));
 	}
 
-	@Test
-	public void getTypeReturnsTheSVTType() {
-		when(environment.getProperty(TYPE_KEY)).thenReturn(TYPE_FILE);
-		assertEquals(SVTType.FILE, defaultSVTConfiguration.getType());
-	}
 }
