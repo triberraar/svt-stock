@@ -20,7 +20,7 @@ import be.tribersoft.svt.stock.svt_anti_corruption.api.SVTType;
 public class DefaultSVTConfiguration implements SVTConfiguration {
 
 	private static final String TYPE_KEY = "type";
-	private static final String URLS_KEY = "url";
+	private static final String URLS_KEY = "urls";
 	private static final String SVT_PREFIX = "http://www.svt.se/svttext/web/pages/";
 	private static final String SVT_PAGE = "203.html";
 	private static final String STUB_LOCATION = "/stub.html";
